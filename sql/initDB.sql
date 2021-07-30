@@ -1,6 +1,9 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS tasks;
+
 CREATE table users (
-	primary key (id),
-    id int NOT NULL AUTO_INCREMENT,
+	PRIMARY KEY (id),
+    	id int NOT NULL AUTO_INCREMENT,
 	first_name VARCHAR(30),
 	last_name VARCHAR(30),
 	account_type INT,
@@ -9,18 +12,22 @@ CREATE table users (
     points INT
 );
 
-CREATE table tasks (
-	primary key (id),
-    id int,
-    name varchar(20),
-    point_value INT,
-    category_id INT,
-    estimated_time datetime,
-    description varchar(50),
-    start_time datetime,
-    estimated_completion_time datetime,
-    status INT,
-    image_path varchar(30),
-    assigned_user_id int,
-    created_user_id int
-);
+CREATE TABLE tasks (
+	PRIMARY KEY(id),
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(40), 
+	point_value INT, 
+	category_id INT, 
+	estimate_time INT, 
+	description VARCHAR(100), 
+	start_time time,
+	estimated_completion_time time, 
+	status INT, 
+	completion_time time,
+	image_path VARCHAR(50), 
+	assigned_user_id INT, 
+	created_user_id INT,
+	history VARCHAR(100), 
+	repeat_r BOOL, 
+	active BOOL, 
+	steps JSON);
